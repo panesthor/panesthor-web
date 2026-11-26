@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panesthor | Pedí tus panes</title>
+<meta name="description" content="Panes para hamburguesas, lomitos, sándwiches y súper panchos. Elegí tus bolsones y mandá el pedido armado por WhatsApp.">
+<meta name="theme-color" content="#101a32">
+<!-- Vista previa al compartir el link por WhatsApp / redes -->
+<link rel="canonical" href="https://panesthor.com.ar/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://panesthor.com.ar/">
+<meta property="og:site_name" content="Panesthor">
+<meta property="og:title" content="Panesthor · Pedí tus panes">
+<meta property="og:description" content="Elegí tus bolsones y mandá el pedido armado por WhatsApp.">
+<meta property="og:image" content="https://panesthor.com.ar/img/og.jpg">
+<meta property="og:image:secure_url" content="https://panesthor.com.ar/img/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Panesthor, panes para hamburguesas">
+<link rel="me" href="https://www.instagram.com/panesthor/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: directa, de mostrador de barrio; pedir tiene que ser más rápido que escribir un WhatsApp
+   IDEA: la góndola de la panadería: los bolsones a la vista, tocás + y el pedido se arma solo
+   PICTURE: las fotos reales de Panesthor sobre su azul, grandes, con el + encima
+   COLOUR and TYPE: azul noche de las fotos, dorado de la marca, crema para respirar; Anton + Inter
+   LAYOUT: franja de datos, header fijo con total, hero corto, catálogo, info, barra de pedido abajo */
+:root{--navy:#101a32;--navy2:#18264a;--navy3:#213260;--gold:#f4bd28;--gold2:#ffd35c;--cream:#f7f3ea;--ink:#101a32;--muted:#9aa5bd;--line:#ffffff1f;--wa:#1fa855;color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--navy);color:#fff;font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:clip}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.display{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.01em;text-wrap:balance}
+.in{max-width:1180px;margin:0 auto;padding-inline:max(4vw,16px)}
+
+/* Franja de datos */
+.ticker{background:var(--gold);color:var(--navy);font-weight:800;font-size:13px;overflow:hidden;white-space:nowrap}
+.ticker .track{display:inline-flex;gap:40px;padding:8px 0;animation:tick 38s linear infinite}
+.ticker span::before{content:"";display:inline-block;width:6px;height:6px;background:var(--navy);border-radius:50%;margin-right:12px;vertical-align:middle}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:#101a32f2;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{height:40px;width:auto;display:block}
+.nav{display:flex;gap:22px;font-weight:700;font-size:14px}
+.nav a{text-decoration:none;color:#d3d9e6}.nav a:hover{color:var(--gold)}
+.tools{display:flex;align-items:center;gap:10px}
+.ig{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;border:2px solid #ffffff40;text-decoration:none;transition:border-color .2s,color .2s}
+.ig:hover{border-color:var(--gold);color:var(--gold)}
+.ig svg{width:20px;height:20px}
+.figl{margin-top:8px!important}.figl a{display:inline-flex;align-items:center;gap:8px}.figl svg{width:18px;height:18px}
+.pill{display:flex;align-items:center;gap:8px;border:0;background:#fff;color:var(--navy);font-weight:800;border-radius:999px;padding:0 16px;height:44px;white-space:nowrap}
+.pill svg{width:18px;height:18px}
+.pill .n{background:var(--gold);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
+
+/* Hero */
+.hero{padding:clamp(34px,6vw,72px) 0 clamp(28px,4vw,48px)}
+.hgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.kicker{color:var(--gold);font-weight:800;font-size:14px;margin:0 0 12px}
+.hero h1{font-size:clamp(44px,7vw,84px);margin:0 0 18px}
+.hero h1 span{color:var(--gold)}
+.lead{font-size:18px;color:#d3d9e6;max-width:30em;margin:0 0 24px}
+.how{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.how li{background:var(--navy2);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px}
+.how li b{color:var(--gold)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 22px;border-radius:12px;font-weight:800;text-decoration:none;border:0}
+.btn.gold{background:var(--gold);color:var(--navy)}.btn.gold:hover{background:var(--gold2)}
+.btn.ghost{background:transparent;color:#fff;border:2px solid #ffffff40}.btn.ghost:hover{border-color:var(--gold)}
+.slides{position:relative;max-width:470px;margin-left:auto;width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden;box-shadow:0 24px 60px #0008;border:1px solid var(--line);background:var(--navy2)}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.slides img.on{opacity:1}
+.dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:2px}
+.dots button{width:36px;height:36px;border:0;background:transparent;display:grid;place-items:center;padding:0}
+.dots button::before{content:"";width:10px;height:10px;border-radius:50%;background:#ffffff80;box-shadow:0 1px 4px #0008;transition:width .3s,background .3s}
+.dots button[aria-current=true]::before{width:26px;border-radius:6px;background:var(--gold)}
+
+/* Catálogo */
+.cat{background:var(--navy2);padding:clamp(36px,5vw,64px) 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.head h2{font-size:clamp(34px,4.6vw,52px);margin:0}
+.head p{margin:6px 0 0;color:var(--muted)}
+.repeat{display:none}.repeat.on{display:inline-flex}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{background:var(--navy);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
+.card.sel{border-color:var(--gold)}
+.ph{position:relative;aspect-ratio:4/3;background:var(--navy3)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ctl{position:absolute;right:12px;bottom:12px}
+.plus{width:48px;height:48px;border-radius:50%;border:0;background:#fff;color:var(--navy);display:grid;place-items:center;box-shadow:0 6px 18px #0007}
+.plus:hover{background:var(--gold)}
+.plus svg,.step svg{width:22px;height:22px}
+.step{display:flex;align-items:center;gap:2px;background:#fff;color:var(--navy);border-radius:999px;padding:3px;box-shadow:0 6px 18px #0007}
+.step button{width:42px;height:42px;border-radius:50%;border:0;background:transparent;color:var(--navy);display:grid;place-items:center}
+.step button:hover{background:#eef0f5}
+.step output{min-width:28px;text-align:center;font-weight:800;font-size:18px}
+.info{padding:16px 18px 18px}
+.info h3{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:23px;letter-spacing:.02em;text-transform:uppercase;margin:0;line-height:1.1}
+.pack{color:var(--muted);font-size:14px;margin-top:4px}
+.price{color:var(--gold);font-weight:800;font-size:22px;margin-top:10px;white-space:nowrap}
+.price small{color:var(--muted);font-weight:500;font-size:13px}
+
+/* Clientes */
+.clients{background:var(--navy);padding:clamp(36px,5vw,60px) 0;overflow:hidden}
+.clients h2{font-size:clamp(30px,4vw,44px);margin:0 0 24px}
+.clients p{color:var(--muted);margin:0 0 24px}
+.belt{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.belt .row{display:flex;gap:18px;width:max-content;animation:belt 40s linear infinite}
+.belt:hover .row{animation-play-state:paused}
+@keyframes belt{to{transform:translateX(-50%)}}
+.logo{flex:none;width:150px;height:150px;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 26px #0006;display:block}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+a.logo{transition:transform .2s}a.logo:hover{transform:translateY(-4px)}
+@media(max-width:600px){.logo{width:118px;height:118px;border-radius:16px}.belt .row{gap:12px}}
+@media(prefers-reduced-motion:reduce){.belt{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.belt .row{animation:none}}
+
+/* Antes de pedir */
+.rules{background:var(--cream);color:var(--ink);padding:clamp(36px,5vw,64px) 0}
+.rules h2{font-size:clamp(32px,4.4vw,48px);margin:0 0 22px}
+.rgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.rule{background:#fff;border-radius:18px;padding:20px;border:1px solid #101a3214}
+.rule svg{width:30px;height:30px;color:var(--navy);background:var(--gold);border-radius:10px;padding:6px;margin-bottom:12px}
+.rule b{display:block;font-size:17px;margin-bottom:4px}
+.rule p{margin:0;color:#4a5570;font-size:15px}
+.rule a{font-weight:800}
+
+/* Footer */
+footer{background:#0a1124;color:#aab4c9;padding:40px 0 120px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+footer h4{color:#fff;margin:0 0 8px;font-size:15px}
+footer p{margin:0}
+footer a{color:#fff}
+.fbrand{display:flex;gap:16px;align-items:center}.fbrand img{width:84px;height:auto;flex:none}
+.copy{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:13px}
+
+/* Barra de pedido */
+.order{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px max(4vw,12px) calc(12px + env(safe-area-inset-bottom));transform:translateY(120%);transition:transform .25s}
+.order.on{transform:none}
+.order button{width:100%;max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;border-radius:16px;background:var(--wa);color:#fff;min-height:60px;padding:0 20px;font-weight:800;font-size:17px;box-shadow:0 14px 40px #000a}
+.order small{display:block;font-weight:600;font-size:13px;opacity:.9;text-align:left}
+
+/* Hoja de pedido */
+.shade{position:fixed;inset:0;z-index:40;background:#050a18b3;opacity:0;pointer-events:none;transition:opacity .2s}
+.shade.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:50;left:50%;bottom:0;width:min(560px,100%);max-height:92vh;overflow:auto;background:#fff;color:var(--ink);border-radius:22px 22px 0 0;padding:22px 20px calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,105%);transition:transform .25s}
+.sheet.on{transform:translate(-50%,0)}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sh h2{font-size:30px;margin:0}
+.x{width:44px;height:44px;border-radius:50%;border:0;background:#eef0f5;color:var(--ink);font-size:22px}
+.line{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #e6e8ee}
+.line b{display:block}.line span{color:#68728a;font-size:14px}
+.line .step{box-shadow:none;background:#eef0f5}
+.line .step button{width:38px;height:38px}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:22px;margin:16px 0 18px}
+.lbl{font-weight:800;margin:0 0 8px;font-size:15px}
+.days{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.days button{border:2px solid #dfe2ea;background:#fff;color:var(--ink);border-radius:12px;min-height:48px;padding:4px 12px;font-weight:700;line-height:1.15;font-size:14px}
+.days button small{display:block;font-weight:500;color:#68728a;font-size:12px}
+.days button[aria-pressed=true]{border-color:var(--navy);background:var(--navy);color:#fff}
+.days button[aria-pressed=true] small{color:#c5cde0}
+.hint{font-size:13px;color:#68728a;margin:6px 0 16px}
+.sheet{color-scheme:light}
+.name{background:#fff;color:var(--ink);width:100%;height:50px;border:2px solid #dfe2ea;border-radius:12px;padding:0 14px;font:inherit;font-size:16px;margin-bottom:16px}
+.name:focus{border-color:var(--navy);outline:0}
+.send{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;border-radius:14px;background:var(--wa);color:#fff;text-decoration:none;font-weight:800;font-size:17px}
+.send svg{width:22px;height:22px}
+.clear{display:block;margin:12px auto 0;border:0;background:none;color:#68728a;text-decoration:underline;font-size:14px;min-height:40px}
+.note{font-size:12px;color:#68728a;text-align:center;margin:8px 0 0}
+
+@media(max-width:900px){.nav{display:none}.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.hgrid{grid-template-columns:1fr}.slides{max-width:none;aspect-ratio:4/3;border-radius:18px}.hero{padding-top:28px}.lead{font-size:17px}}
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.info{padding:10px 12px 14px}.info h3{font-size:18px}.price{font-size:18px}.pack{font-size:13px}.ctl{right:8px;bottom:8px}.plus{width:44px;height:44px}.step button{width:36px;height:36px}.step output{min-width:20px;font-size:16px}.rgrid{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}.pill .t{display:none}.brand img{height:34px}}
+@media(prefers-reduced-motion:reduce){.ticker .track{animation:none}html{scroll-behavior:auto}.order,.sheet,.shade{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="ticker" aria-label="Información de pedidos">
+  <div class="track" id="ticker"></div>
+</div>
+
+<header>
+  <div class="in bar">
+    <a class="brand" href="#" aria-label="Panesthor, inicio">
+      <img src="img/logo-nombre.png" alt="Panesthor" width="648" height="175">
+    </a>
+    <nav class="nav"><a href="#catalogo">Productos</a><a href="#clientes">Clientes</a><a href="#antes">Cómo pedir</a><a href="#contacto">Contacto</a></nav>
+    <div class="tools">
+    <a class="ig" href="https://www.instagram.com/panesthor/" target="_blank" rel="noopener" aria-label="Instagram de Panesthor (@panesthor)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <button class="pill" id="pill" type="button" aria-label="Ver mi pedido">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="t" id="pillTotal">$0</span><span class="n" id="pillN">0</span>
+    </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="in hgrid">
+    <div>
+      <h1 class="display">Pedí tus panes <span>en tres toques</span></h1>
+      <p class="lead">Elegí los bolsones, tocá enviar y el pedido nos llega armado por WhatsApp. Sin escribir nada.</p>
+      <ol class="how"><li><b>1</b> Elegí</li><li><b>2</b> Revisá</li><li><b>3</b> Enviá por WhatsApp</li></ol>
+      <div class="ctas">
+        <a class="btn gold" href="#catalogo">Ver productos ↓</a>
+        <button class="btn ghost repeat" id="repeatHero" type="button">Repetir mi último pedido</button>
+      </div>
+    </div>
+    <div class="slides" id="slides" aria-roledescription="carrusel" aria-label="Hamburguesas hechas con pan Panesthor"><div class="dots" id="dots"></div></div>
+  </div>
+</section>
+
+<section class="cat" id="catalogo">
+  <div class="in">
+    <div class="head">
+      <div>
+        <h2 class="display">Nuestros panes</h2>
+        <p>Precios por bolsón · Compra mínima: 1 bolsón de cualquier variedad</p>
+      </div>
+      <button class="btn ghost repeat" id="repeatCat" type="button">Repetir mi último pedido</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="clients" id="clientes">
+  <div class="in">
+    <h2 class="display">Locales que ya trabajan con nuestros panes</h2>
+  </div>
+  <div class="belt" aria-label="Logos de locales clientes"><div class="row" id="belt"></div></div>
+</section>
+
+<section class="rules" id="antes">
+  <div class="in">
+    <h2 class="display">Antes de pedir</h2>
+    <div class="rgrid">
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b>Pedidos</b><p>Hasta las 5:00 a. m. del mismo día en que retirás.</p></div>
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg><b>Retiro</b><p>Solo en el local, de 20:15 a 21:00 hs. John F. Kennedy 134. <a id="mapLink" href="#" target="_blank" rel="noopener">Cómo llegar</a></p></div>
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><b>Días</b><p>Miércoles y domingos cerrado.</p></div>
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b>Compra mínima</b><p>1 bolsón de cualquier variedad.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="in">
+    <div class="fgrid">
+      <div class="fbrand"><img src="img/logo.png" alt="Panesthor, panes con poder" width="96" height="100" loading="lazy"><p>Panes para hamburguesas, lomitos, sándwiches y súper panchos.</p></div>
+      <div><h4>Pedidos, consultas y redes</h4><p><a id="waFoot" href="#" target="_blank" rel="noopener">WhatsApp 3777 710525</a></p>
+        <p class="figl"><a href="https://www.instagram.com/panesthor/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@panesthor</a></p></div>
+      <div><h4>Retiro</h4><p>John F. Kennedy 134<br>20:15 a 21:00 hs · Cerrado miércoles y domingos</p></div>
+    </div>
+    <p class="copy">© <span id="yr"></span> Panesthor</p>
+  </div>
+</footer>
+
+<div class="order" id="order"><button type="button" id="orderBtn"><span><small id="orderN">0 bolsones</small><span id="orderTotal">$0</span></span><span>Revisar y enviar →</span></button></div>
+
+<div class="shade" id="shade"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle" aria-hidden="true">
+  <div class="sh"><h2 class="display" id="shTitle">Tu pedido</h2><button class="x" id="close" type="button" aria-label="Cerrar">×</button></div>
+  <div id="lines"></div>
+  <div class="tot"><span>Total</span><span id="sheetTotal">$0</span></div>
+  <p class="lbl">¿Para qué día?</p>
+  <div class="days" id="days"></div>
+  <p class="hint" id="dayHint"></p>
+  <label class="lbl" for="name">Tu nombre o el de tu local</label>
+  <input class="name" id="name" autocomplete="organization" placeholder="Ej: Lomitos Don Pepe">
+  <a class="send" id="send" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+    Enviar pedido por WhatsApp
+  </a>
+  <p class="note">Se abre WhatsApp con el mensaje listo. Panesthor te confirma el pedido por ahí.</p>
+  <button class="clear" id="clear" type="button">Vaciar pedido</button>
+</aside>
+
+<script>
+{
+// ====== DATOS QUE EL CLIENTE PUEDE CAMBIAR ======
+const WA = '5493777710525';
+const ADDRESS = 'John F. Kennedy 134, Goya, Corrientes';
+const CLOSED_DAYS = [0, 3];   // 0 = domingo, 3 = miércoles
+const CUTOFF_HOUR = 5;        // pedidos hasta las 5 a. m. del mismo día del retiro
+const products = [
+  {id:1, name:'Pan brioche clásico',    pack:'Bolsón x24 unidades',       short:'x24', price:15600, img:'img/product1.jpg'},
+  {id:2, name:'Pan brioche con queso',  pack:'Bolsón x24 unidades',       short:'x24', price:18000, img:'img/product2.jpg'},
+  {id:8, name:'Pan de papa',            pack:'Bolsón x24 unidades',       short:'x24', price:17500, img:'img/product8.jpg'},
+  {id:3, name:'Pan lomito clásico',     pack:'Bolsón x9 · 20 cm aprox.',  short:'x9',  price:8600,  img:'img/product3.jpg'},
+  {id:4, name:'Pan lomito con queso',   pack:'Bolsón x9 · 20 cm aprox.',  short:'x9',  price:9500,  img:'img/product4.jpg'},
+  {id:5, name:'Pan sándwich clásico',   pack:'Bolsón x10 · 30 cm aprox.', short:'x10', price:10000, img:'img/product5-v2.jpg'},
+  {id:6, name:'Súper pancho',           pack:'Bolsón x12 · 21 × 4 cm',    short:'x12', price:8400,  img:'img/product6.jpg'},
+  {id:7, name:'Súper pancho con queso', pack:'Bolsón x12 · 21 × 4 cm',    short:'x12', price:10800, img:'img/product7.jpg'}
+];
+// Fotos del inicio (pos = qué parte de la foto se prioriza al recortar: 'x% y%')
+const heroPhotos = [
+  {img:'img/burger4.jpg', pos:'50% 55%'},
+  {img:'img/burger5.jpg', pos:'50% 48%'},
+  {img:'img/burger2.jpg', pos:'50% 62%'},
+  {img:'img/burger1.jpg', pos:'50% 60%'},
+  {img:'img/burger3.jpg', pos:'60% 55%'}
+];
+// Locales clientes: agregar uno = sumar una línea (ig es opcional, el usuario de Instagram sin @)
+const clients = [
+  {name:'Burgerzoe',     img:'img/clientes/burgerzoe.jpg',     ig:''},
+  {name:'Seven Burger',  img:'img/clientes/seven-burger.jpg',  ig:''},
+  {name:'Mr. Nitos',     img:'img/clientes/mr-nitos.jpg',      ig:''},
+  {name:'Burger Cuervo', img:'img/clientes/burger-cuervo.jpg', ig:''},
+  {name:"Genn'Z Fast Food", img:'img/clientes/genz.jpg',       ig:''},
+  {name:'Rytus',         img:'img/clientes/rytus.jpg',         ig:''}
+];
+// ================================================
+
+const $ = id => document.getElementById(id);
+const money = n => new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0}).format(n);
+const DAYS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+const store = {
+  get(k){try{return JSON.parse(localStorage.getItem('pt_'+k))}catch(e){return null}},
+  set(k,v){try{localStorage.setItem('pt_'+k,JSON.stringify(v))}catch(e){}}
+};
+const ICON_PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+const ICON_MINUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14"/></svg>';
+const ICON_TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>';
+
+let cart = store.get('cart') || {};
+let day = null;
+
+// Franja superior
+const tickItems = ['Pedidos hasta las 5 a. m. del día de retiro','Retiro de 20:15 a 21:00 hs','John F. Kennedy 134','Miércoles y domingos cerrado','Compra mínima: 1 bolsón'];
+$('ticker').innerHTML = [...tickItems,...tickItems,...tickItems,...tickItems].map(t=>`<span>${t}</span>`).join('');
+
+$('yr').textContent = new Date().getFullYear();
+$('mapLink').href = 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(ADDRESS);
+$('waFoot').href = 'https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Panesthor! Tengo una consulta:');
+
+// Carrusel de fotos del inicio
+{
+  const box = $('slides'), dots = $('dots');
+  box.insertAdjacentHTML('afterbegin', heroPhotos.map((p,i)=>`<img src="${p.img}" alt="Hamburguesa hecha con pan Panesthor" style="object-position:${p.pos}" ${i?'loading="lazy"':''} class="${i?'':'on'}">`).join(''));
+  dots.innerHTML = heroPhotos.map((p,i)=>`<button type="button" aria-label="Foto ${i+1}" aria-current="${i===0}"></button>`).join('');
+  const imgs = box.querySelectorAll('img'), btns = dots.querySelectorAll('button');
+  let cur = 0, timer = null;
+  const show = i => { cur = (i+imgs.length)%imgs.length; imgs.forEach((im,k)=>im.classList.toggle('on',k===cur)); btns.forEach((b,k)=>b.setAttribute('aria-current',k===cur)); };
+  const play = () => { clearInterval(timer); if(imgs.length>1) timer = setInterval(()=>show(cur+1), 4500); };
+  btns.forEach((b,k)=>b.onclick=()=>{show(k);play()});
+  document.addEventListener('visibilitychange',()=>document.hidden?clearInterval(timer):play());
+  let x0=null; box.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+  box.addEventListener('touchend',e=>{ if(x0===null) return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));play()} x0=null; });
+  play();
+}
+
+// Carrusel de clientes (se repite la lista para que el giro sea continuo)
+{
+  const tile = c => c.ig
+    ? `<a class="logo" href="https://instagram.com/${c.ig}" target="_blank" rel="noopener" title="${c.name}"><img src="${c.img}" alt="${c.name}" loading="lazy" width="400" height="400"></a>`
+    : `<div class="logo" title="${c.name}"><img src="${c.img}" alt="${c.name}" loading="lazy" width="400" height="400"></div>`;
+  const reps = Math.max(1, Math.ceil(1900 / (clients.length * 168)));
+  const half = Array.from({length:reps}, () => clients.map(tile).join('')).join('');
+  $('belt').innerHTML = half + half.replace(/alt="[^"]*"/g,'alt="" aria-hidden="true"');
+  if(clients.length===0) $('clientes').hidden = true;
+}
+
+// Catálogo
+$('grid').innerHTML = products.map(p=>`
+  <article class="card" id="card${p.id}">
+    <div class="ph"><img src="${p.img}" alt="${p.name}" loading="lazy" width="1096" height="704"><div class="ctl" id="ctl${p.id}"></div></div>
+    <div class="info"><h3>${p.name}</h3><div class="pack">${p.pack}</div><div class="price">${money(p.price)} <small>el bolsón</small></div></div>
+  </article>`).join('');
+
+const stepper = (id,q) => `<div class="step"><button type="button" data-d="-1" data-id="${id}" aria-label="Quitar uno">${q===1?ICON_TRASH:ICON_MINUS}</button><output>${q}</output><button type="button" data-d="1" data-id="${id}" aria-label="Agregar uno">${ICON_PLUS}</button></div>`;
+
+function change(id,d){
+  cart[id] = (cart[id]||0)+d;
+  if(cart[id]<=0) delete cart[id];
+  store.set('cart',cart);
+  render();
+}
+
+function render(){
+  const items = products.filter(p=>cart[p.id]);
+  const qty = items.reduce((s,p)=>s+cart[p.id],0);
+  const total = items.reduce((s,p)=>s+p.price*cart[p.id],0);
+  for(const p of products){
+    const q = cart[p.id]||0;
+    $('ctl'+p.id).innerHTML = q ? stepper(p.id,q) : `<button class="plus" type="button" data-d="1" data-id="${p.id}" aria-label="Agregar ${p.name}">${ICON_PLUS}</button>`;
+    $('card'+p.id).classList.toggle('sel',q>0);
+  }
+  const label = qty===1?'1 bolsón':qty+' bolsones';
+  $('pillTotal').textContent = money(total);
+  $('pillN').textContent = qty;
+  $('orderN').textContent = label;
+  $('orderTotal').textContent = money(total);
+  $('order').classList.toggle('on',qty>0 && !$('sheet').classList.contains('on'));
+  $('sheetTotal').textContent = money(total);
+  $('lines').innerHTML = items.length ? items.map(p=>`<div class="line"><div><b>${p.name}</b><span>${p.short} · ${money(p.price)} c/u</span></div>${stepper(p.id,cart[p.id])}</div>`).join('') : '<p class="hint">Todavía no agregaste productos.</p>';
+  const last = store.get('last');
+  for(const b of [$('repeatHero'),$('repeatCat')]) b.classList.toggle('on',!!last && !qty);
+  updateSend();
+}
+
+// Días de retiro válidos
+function validDays(){
+  const now = new Date();
+  const start = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  start.setDate(start.getDate() + (now.getHours()<CUTOFF_HOUR ? 0 : 1));
+  const out = [];
+  for(let d=new Date(start); out.length<5; d.setDate(d.getDate()+1)){
+    if(!CLOSED_DAYS.includes(d.getDay())) out.push(new Date(d));
+  }
+  return {list:out, todayClosedByTime: now.getHours()>=CUTOFF_HOUR};
+}
+function dayLabel(d){
+  const t = new Date(); t.setHours(0,0,0,0);
+  const diff = Math.round((d-t)/864e5);
+  const top = diff===0?'Hoy':diff===1?'Mañana':diff===2?'Pasado mañana':DAYS[d.getDay()][0].toUpperCase()+DAYS[d.getDay()].slice(1);
+  return {top, sub: (diff<=2?DAYS[d.getDay()]+' ':'')+d.getDate()+'/'+(d.getMonth()+1)};
+}
+function renderDays(){
+  const {list,todayClosedByTime} = validDays();
+  if(!day || !list.some(d=>+d===+day)) day = list[0];
+  $('days').innerHTML = list.map((d,i)=>{const l=dayLabel(d);return `<button type="button" data-day="${i}" aria-pressed="${+d===+day}">${l.top}<small>${l.sub}</small></button>`}).join('');
+  $('days').querySelectorAll('button').forEach(b=>b.onclick=()=>{day=list[+b.dataset.day];renderDays();updateSend()});
+  $('dayHint').textContent = todayClosedByTime && !CLOSED_DAYS.includes(new Date().getDay())
+    ? 'Para hoy ya pasó el horario de pedidos (hasta las 5 a. m.). Si es urgente, consultanos por WhatsApp.'
+    : 'Retiro en el local de 20:15 a 21:00 hs.';
+}
+
+function message(){
+  const items = products.filter(p=>cart[p.id]);
+  const name = $('name').value.trim();
+  const l = day ? DAYS[day.getDay()]+' '+day.getDate()+'/'+(day.getMonth()+1) : '';
+  return 'Hola Panesthor! Quiero hacer este pedido:\n\n'
+    + items.map(p=>`• ${cart[p.id]} × ${p.name} (${p.short})`).join('\n')
+    + (l?`\n\nRetiro: ${l}`:'')
+    + (name?`\nA nombre de: ${name}`:'');
+}
+function updateSend(){ $('send').href = 'https://wa.me/'+WA+'?text='+encodeURIComponent(message()); }
+
+// Hoja de pedido
+function openSheet(){
+  renderDays(); updateSend();
+  $('sheet').classList.add('on'); $('shade').classList.add('on');
+  $('sheet').setAttribute('aria-hidden','false'); $('order').classList.remove('on');
+  $('close').focus();
+}
+function closeSheet(){
+  $('sheet').classList.remove('on'); $('shade').classList.remove('on');
+  $('sheet').setAttribute('aria-hidden','true'); render();
+}
+
+document.addEventListener('click',e=>{
+  const b = e.target.closest('[data-d]');
+  if(b) change(+b.dataset.id,+b.dataset.d);
+});
+$('pill').onclick = () => Object.keys(cart).length ? openSheet() : $('catalogo').scrollIntoView();
+$('orderBtn').onclick = openSheet;
+$('close').onclick = closeSheet;
+$('shade').onclick = closeSheet;
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeSheet(); });
+$('name').value = store.get('name') || '';
+$('name').oninput = () => { store.set('name',$('name').value); updateSend(); };
+$('send').addEventListener('click',e=>{
+  if(!Object.keys(cart).length){ e.preventDefault(); return; }
+  store.set('last',cart);
+});
+$('clear').onclick = () => { cart = {}; store.set('cart',cart); closeSheet(); };
+const repeat = () => { const last = store.get('last'); if(!last) return; cart = {...last}; store.set('cart',cart); render(); openSheet(); };
+$('repeatHero').onclick = repeat;
+$('repeatCat').onclick = repeat;
+
+render();
+}
+</script>
+</body>
+</html>
