@@ -19,6 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Panesthor, panes para hamburguesas">
+<link rel="me" href="https://www.instagram.com/panesthor/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -54,6 +55,11 @@ header{position:sticky;top:0;z-index:20;background:#101a32f2;backdrop-filter:blu
 .brand img{height:40px;width:auto;display:block}
 .nav{display:flex;gap:22px;font-weight:700;font-size:14px}
 .nav a{text-decoration:none;color:#d3d9e6}.nav a:hover{color:var(--gold)}
+.tools{display:flex;align-items:center;gap:10px}
+.ig{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;border:2px solid #ffffff40;text-decoration:none;transition:border-color .2s,color .2s}
+.ig:hover{border-color:var(--gold);color:var(--gold)}
+.ig svg{width:20px;height:20px}
+.figl{margin-top:8px!important}.figl a{display:inline-flex;align-items:center;gap:8px}.figl svg{width:18px;height:18px}
 .pill{display:flex;align-items:center;gap:8px;border:0;background:#fff;color:var(--navy);font-weight:800;border-radius:999px;padding:0 16px;height:44px;white-space:nowrap}
 .pill svg{width:18px;height:18px}
 .pill .n{background:var(--gold);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
@@ -190,10 +196,13 @@ footer a{color:#fff}
       <img src="img/logo-nombre.png" alt="Panesthor" width="648" height="175">
     </a>
     <nav class="nav"><a href="#catalogo">Productos</a><a href="#clientes">Clientes</a><a href="#antes">Cómo pedir</a><a href="#contacto">Contacto</a></nav>
+    <div class="tools">
+    <a class="ig" href="https://www.instagram.com/panesthor/" target="_blank" rel="noopener" aria-label="Instagram de Panesthor (@panesthor)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
     <button class="pill" id="pill" type="button" aria-label="Ver mi pedido">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
       <span class="t" id="pillTotal">$0</span><span class="n" id="pillN">0</span>
     </button>
+    </div>
   </div>
 </header>
 
@@ -248,7 +257,8 @@ footer a{color:#fff}
   <div class="in">
     <div class="fgrid">
       <div class="fbrand"><img src="img/logo.png" alt="Panesthor, panes con poder" width="96" height="100" loading="lazy"><p>Panes para hamburguesas, lomitos, sándwiches y súper panchos.</p></div>
-      <div><h4>Pedidos y consultas</h4><p><a id="waFoot" href="#" target="_blank" rel="noopener">WhatsApp 3777 710525</a></p></div>
+      <div><h4>Pedidos, consultas y redes</h4><p><a id="waFoot" href="#" target="_blank" rel="noopener">WhatsApp 3777 710525</a></p>
+        <p class="figl"><a href="https://www.instagram.com/panesthor/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@panesthor</a></p></div>
       <div><h4>Retiro</h4><p>John F. Kennedy 134<br>20:15 a 21:00 hs · Cerrado miércoles y domingos</p></div>
     </div>
     <p class="copy">© <span id="yr"></span> Panesthor</p>
