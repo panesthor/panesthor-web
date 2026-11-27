@@ -331,7 +331,7 @@ const products = [
 ];
 // Fotos del inicio (pos = qué parte de la foto se prioriza al recortar: 'x% y%')
 const heroPhotos = [
-  {img:'img/burger4.jpg', pos:'50% 55%'},
+  {img:'img/burger9.jpg', pos:'50% 41%'},
   {img:'img/burger1.jpg', pos:'50% 60%'},
   {img:'img/burger3.jpg', pos:'60% 55%'},
   {img:'img/burger6.jpg', pos:'50% 64%'},
@@ -379,7 +379,7 @@ $('waFoot').href = 'https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Panesth
   const imgs = box.querySelectorAll('img'), btns = dots.querySelectorAll('button');
   let cur = 0, timer = null;
   const show = i => { cur = (i+imgs.length)%imgs.length; imgs.forEach((im,k)=>im.classList.toggle('on',k===cur)); btns.forEach((b,k)=>b.setAttribute('aria-current',k===cur)); };
-  const play = () => { clearInterval(timer); if(imgs.length>1) timer = setInterval(()=>show(cur+1), 4500); };
+  const play = () => { clearInterval(timer); if(imgs.length>1) timer = setInterval(()=>show(cur+1), 10000); };
   btns.forEach((b,k)=>b.onclick=()=>{show(k);play()});
   document.addEventListener('visibilitychange',()=>document.hidden?clearInterval(timer):play());
   let x0=null; box.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
